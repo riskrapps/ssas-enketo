@@ -41,7 +41,7 @@
     "mocha": "^5.2.0",
     "mocha-jsdom": "^2.0.0",
     "mocha-sinon": "^2.1.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "pouchdb": "^6.4.3",
     "sass-loader": "^7.1.0",
