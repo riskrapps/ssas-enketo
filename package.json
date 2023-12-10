@@ -1,6 +1,6 @@
 {
   "name": "ssas-enketo",
-  "version": "2.5.1",
+  "version": "2.5.3",
   "description": "ssas enketo module",
   "scripts": {
     "serve": "http-server www/",
@@ -31,7 +31,11 @@
     "css-loader": "^1.0.0",
     "cypress-form-data-with-file-upload": "^1.0.0",
     "enketo-core": "^5.13.0",
-    "file-loader": "^2.0.0",
+    "file-loader": "^2.0.0"
+  },
+  "dependencies": {
+    "angular": "1.6.0",
+    "enketo-core": "^4.9.0",
     "font-awesome": "4.7",
     "html-webpack-exclude-assets-plugin": "^0.0.7",
     "html-webpack-plugin": "^3.2.0",
