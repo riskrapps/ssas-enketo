@@ -1,53 +1,50 @@
-require('mocha-sinon')
-const jsdom = require('mocha-jsdom')
-const expect = require('chai').expect
-var MockAdapter = require('axios-mock-adapter')
+require("mocha-sinon");
+const jsdom = require("jsdom");
+const expect = require("chai").expect;
+var MockAdapter = require("axios-mock-adapter");
 
-const axios = require('axios')
-const Server = require('../src/js/common/Server').default
-const Cookies = require('../src/js/common/Cookies').default
-const queryParams = require('../src/js/common/QueryParams').default
+const axios = require("axios");
+const Server = require("../src/js/common/Server").default;
+const Cookies = require("../src/js/common/Cookies").default;
+const queryParams = require("../src/js/common/QueryParams").default;
 
 const assertTokenIs = (token) => {
-    expect(axios.defaults.headers.common['Authorization']).to.eq(token)
-}
+  expect(axios.defaults.headers.common["Authorization"]).to.eq(token);
+};
 
-describe('Authorization', () => {
+describe("Authorization", () => {
+  beforeEach(() => {
+    var mock = new MockAdapter(axios);
+    mock.onGet("/authorization").reply(200);
+  });
 
-    jsdom({
-        url: 'http://localhost'
-    })
+  afterEach(() => {
+    // Reset the authorization token
+    delete axios.defaults.headers.common["Authorization"];
+    Server.serverInstance = null;
+  });
 
-    beforeEach(() => {
-        var mock = new MockAdapter(axios)
-        mock.onGet('/authorization').reply(200)
-    })
+  it("Receives auth token from query parameter", function () {
+    const queryHas = this.sinon.stub(queryParams, "has").returns(true);
+    const queryGet = this.sinon
+      .stub(queryParams, "get")
+      .returns("TokenTestFromQuery");
 
-    afterEach(() => {
-        // Reset the authorization token
-        delete axios.defaults.headers.common['Authorization']
-        Server.serverInstance = null
-    })
+    Server.newInstance().json("/authorization");
 
-    it('Receives auth token from query parameter', function() {
+    this.sinon.assert.calledWith(queryHas, "auth");
+    this.sinon.assert.calledWith(queryGet, "auth");
+    assertTokenIs("Bearer TokenTestFromQuery");
+  });
 
-        const queryHas = this.sinon.stub(queryParams, 'has').returns(true)
-        const queryGet = this.sinon.stub(queryParams, 'get').returns('TokenTestFromQuery')
+  it("Receives auth token from cookie", function () {
+    const cookieSpy = this.sinon
+      .stub(Cookies, "get")
+      .returns("TokenTestFromCookie");
 
-        Server.newInstance().json('/authorization')
+    Server.newInstance().json("/authorization");
 
-        this.sinon.assert.calledWith(queryHas, 'auth')
-        this.sinon.assert.calledWith(queryGet, 'auth')
-        assertTokenIs('Bearer TokenTestFromQuery')
-    })
-
-    it('Receives auth token from cookie', function() {
-
-        const cookieSpy = this.sinon.stub(Cookies, 'get').returns('TokenTestFromCookie')
-
-        Server.newInstance().json('/authorization')
-        
-        this.sinon.assert.calledWith(cookieSpy, 'enketo_token')
-        assertTokenIs('Bearer TokenTestFromCookie')
-    })
-})
+    this.sinon.assert.calledWith(cookieSpy, "enketo_token");
+    assertTokenIs("Bearer TokenTestFromCookie");
+  });
+});

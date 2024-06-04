@@ -6,13 +6,9 @@
     "serve": "http-server www/",
     "build": "NODE_ENV=production webpack --mode=production",
     "dev": "NODE_ENV=development webpack --mode=development --watch",
-    "test": "mocha --require @babel/register --require babel-polyfill",
+    "test": "mocha -r @babel/register -r babel-polyfill -r jsdom-global/register",
     "clean": "rm -rf www/fonts www/build",
     "prepublishOnly": "npm install && npm run clean && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/aozisik/school-mobile.git"
   },
   "author": "Imagins",
   "license": "GPL-3.0-or-later",
@@ -22,22 +18,17 @@
     "enketo-core": "^5.13.0",
     "intro.js": "^2.9.3",
     "lodash.set": "^4.3.2",
-    "pouchdb": "^6.4.3",
+    "pouchdb": "^8.0.1",
     "tiny-emitter": "^2.0.2",
     "toastr": "^2.1.2",
     "url-search-params": "^0.5.0",
     "v-accordion": "^1.6.0"
   },
   "devDependencies": {
-    "font-awesome": "4.7",
-    "html-webpack-exclude-assets-plugin": "^0.0.7",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.18.1",
-    "webpack-cli": "^3.1.0",
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.27.2",
     "axios-mock-adapter": "^1.15.0",
     "babel-loader": "^8.0.2",
     "babel-polyfill": "^6.26.0",
@@ -46,15 +37,24 @@
     "css-loader": "^1.0.0",
     "cypress-form-data-with-file-upload": "^1.0.0",
     "file-loader": "^2.0.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
-    "sinon": "^7.1.1",
-    "mocha": "^5.2.0",
-    "mocha-jsdom": "^2.0.0",
-    "mocha-sinon": "^2.1.0",
-    "node-sass": "^4.9.3",
+    "font-awesome": "4.7",
+    "html-webpack-exclude-assets-plugin": "^0.0.7",
+    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.3",
+    "mocha": "^5.2.0",
+    "mocha-sinon": "^2.1.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "terser-webpack-plugin": "^2.3.5"
+    "sass": "^1.77.4",
+    "sass-loader": "^7.1.0",
+    "sinon": "^7.1.1",
+    "style-loader": "^0.23.0",
+    "terser-webpack-plugin": "^4.2.3",
+    "webpack": "^4.18.1",
+    "webpack-cli": "^3.1.0",
+    "jsdom": "^20.0.0",
+    "jsdom-global": "^3.0.2"
+  },
+  "resolutions": {
+    "acorn": "8.0.1"
   }
 }
