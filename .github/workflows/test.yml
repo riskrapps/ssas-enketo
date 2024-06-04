@@ -9,7 +9,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14.x"
-      - name: npm install, build, and test
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install dependencies and run tests
         run: |
-          npm i
-          npm test
+          yarn
+          yarn test
