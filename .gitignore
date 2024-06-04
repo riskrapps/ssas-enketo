@@ -2,6 +2,7 @@
 
 # Dependencies
 /node_modules
+yarn-error.log
 
 # webpack assets folders
 www/build

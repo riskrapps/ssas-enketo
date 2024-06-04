@@ -1,4 +1,5 @@
 import angular from "angular";
+import vAccordion from "v-accordion";
 const emitter = require("tiny-emitter/instance");
 import queryParams from "../../common/QueryParams";
 import EnketoForm from "../../survey/EnketoForm";
