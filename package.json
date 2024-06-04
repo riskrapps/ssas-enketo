@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development webpack --mode=development --watch",
     "test": "mocha -r @babel/register -r babel-polyfill -r jsdom-global/register",
     "clean": "rm -rf www/fonts www/build",
-    "prepublishOnly": "npm install && npm run clean && npm run build"
+    "prepublishOnly": "yarn && yarn clean && yarn build"
   },
   "author": "Imagins",
   "license": "GPL-3.0-or-later",
