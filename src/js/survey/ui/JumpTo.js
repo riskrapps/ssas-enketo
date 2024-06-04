@@ -34,13 +34,14 @@ const setupJumpTo = () => {
             labels.each(function() {
               var label = $(this).text();
 
-              if (label.length < 2 || label[1] != ".") {
+              const regExp = /^[A-Z0-9]{1,3}[.]/g
+              if (label.length < 2 || !regExp.test(label)) {
                 return;
               }
 
               var firstSpace = label.indexOf(" ");
               var notations = label
-                .substr(0, firstSpace)
+                .substring(0, firstSpace)
                 .split(".")
                 .filter(function(str) {
                   return str != "";
