@@ -8,12 +8,12 @@ import SurveyManager from "./SurveyManager";
 import queryParams from "../common/QueryParams";
 import SessionManager from "./sessions/SessionManager";
 
-const makeEmitter = silent =>
+const makeEmitter = (silent) =>
   silent
-    ? e => {
+    ? (e) => {
         /*do nothing*/
       }
-    : e => emitter.emit(e);
+    : (e) => emitter.emit(e);
 
 class EnketoForm {
   async init() {
@@ -38,10 +38,10 @@ class EnketoForm {
       "form.or:eq(0)",
       {
         modelStr: SurveyManager.survey.model,
-        ...SessionManager.session.toFormInstance()
+        ...SessionManager.session.toFormInstance(),
       },
       {
-        language: i18n.get("lang")
+        language: i18n.get("lang"),
       }
     );
   }
@@ -85,7 +85,7 @@ class EnketoForm {
       files: await this._formFiles(),
       current_page: this._getCurrentPage(),
       instance_id: this.form.instanceID,
-      deprecated_id: this.form.deprecatedID
+      deprecated_id: this.form.deprecatedID,
     };
   }
 
@@ -124,7 +124,7 @@ class EnketoForm {
     /**
      * Also append previously uploaded files, but as strings.
      */
-    $('form.or input[type="file"][data-loaded-file-name]').each(function() {
+    $('form.or input[type="file"][data-loaded-file-name]').each(function () {
       files.push($(this).data("loaded-file-name"));
     });
     return files;
@@ -167,7 +167,13 @@ class EnketoForm {
     try {
       await SessionManager.finalize(await this._form());
     } catch (e) {
-      emitter.emit("EnketoForm.submitFailed", e);
+      console.error(e);
+
+      const overrideError = SessionManager.driver.canSave()
+        ? "Could not submit your answers at this time. We saved your answers on the device. Please try again later."
+        : "Could not submit your answers at this time. Please try again later.";
+
+      emitter.emit("EnketoForm.submitFailed", new Error(overrideError));
       throw e;
     }
 
