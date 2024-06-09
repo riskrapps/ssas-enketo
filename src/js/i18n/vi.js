@@ -1,0 +1,43 @@
+module.exports = {
+  index: {
+    upload: "Tải lên",
+  },
+  survey: {
+    loading: "Đang tải Khảo sát!",
+    wait: "Điều này sẽ mất một vài phút...",
+    errors: "Biểu mẫu có lỗi, vui lòng sửa tất cả các lỗi trước khi gửi.",
+    saved: "Phiên hoạt động đã được lưu",
+    camera: "Máy ảnh",
+    save: "Lưu",
+    validate: "Xác nhận",
+    first: "Đầu tiên",
+    last: "Cuối cùng",
+    jump_to: "Nhảy đến",
+    submit: "Xác nhận &amp; Gửi",
+    back: "Quay lại",
+    next: "Tiếp theo",
+  },
+  session: {
+    title: "Phiên Khảo sát",
+    description: "Bắt đầu Một Phiên Mới",
+    name: "Đặt tên cho Phiên này",
+    start: "Bắt đầu",
+  },
+  constraint: {
+    required: "Trường này là bắt buộc.",
+    invalid: "Giá trị không được phép",
+  },
+  submissions: {
+    back: "Quay lại",
+    upload_all: "Tải lên Tất cả",
+    upload_single: "Tải lên Này",
+    title: "Tải lên Khảo sát",
+    uploaded: "Đã tải lên!",
+    name: "Tên",
+    hint: "Gợi ý",
+    size: "Kích thước",
+    created_at: "Được tạo lúc",
+    error: "Đã xảy ra lỗi khi cố gắng gửi gói có tên :packet",
+    success: "Gói có tên :packet đã được gửi!",
+  },
+};

@@ -1,0 +1,43 @@
+module.exports = {
+  index: {
+    upload: "Pakia",
+  },
+  survey: {
+    loading: "Inapakia Utafiti!",
+    wait: "Hii itachukua muda kidogo...",
+    errors: "Fomu ina makosa, tafadhali sasa makosa kabla ya kutuma.",
+    saved: "Kikao cha aktiki kimehifadhiwa",
+    camera: "Kamera",
+    save: "Hifadhi",
+    validate: "Thibitisha",
+    first: "Kwanza",
+    last: "Mwisho",
+    jump_to: "Ruka kwenda",
+    submit: "Thibitisha &amp; Tuma",
+    back: "Rudi",
+    next: "Ifuatayo",
+  },
+  session: {
+    title: "Kikao cha Utafiti",
+    description: "Anza Kikao Kipya",
+    name: "Andika Jina la Kikao hiki",
+    start: "Anza",
+  },
+  constraint: {
+    required: "Hili ni lazima.",
+    invalid: "Thamani hairuhusiwi",
+  },
+  submissions: {
+    back: "Rudi",
+    upload_all: "Pakia Zote",
+    upload_single: "Pakia Hii",
+    title: "Pakia Utafiti",
+    uploaded: "Imepakiwa!",
+    name: "Jina",
+    hint: "Funguo",
+    size: "Ukubwa",
+    created_at: "Imehifadhiwa Saa",
+    error: "Kumetokea kosa wakati wa kujaribu kutuma pakiti inayoitwa :packet",
+    success: "Pakiti inayoitwa :packet imepokelewa!",
+  },
+};
