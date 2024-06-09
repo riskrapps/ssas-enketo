@@ -1,0 +1,43 @@
+module.exports = {
+  index: {
+    upload: "رفع",
+  },
+  survey: {
+    loading: "جارٍ تحميل الاستبيان!",
+    wait: "سيستغرق ذلك بضع لحظات...",
+    errors: "النموذج يحتوي على أخطاء، يرجى تصحيح جميع الأخطاء قبل الإرسال.",
+    saved: "تم حفظ الجلسة النشطة",
+    camera: "كاميرا",
+    save: "حفظ",
+    validate: "تحقق",
+    first: "الأول",
+    last: "الأخير",
+    jump_to: "انتقل إلى",
+    submit: "تحقق وارسال",
+    back: "رجوع",
+    next: "التالي",
+  },
+  session: {
+    title: "جلسة استبيان",
+    description: "بدء جلسة جديدة",
+    name: "تسمية هذه الجلسة",
+    start: "بدء",
+  },
+  constraint: {
+    required: "هذه الخانة مطلوبة.",
+    invalid: "القيمة غير مسموح بها",
+  },
+  submissions: {
+    back: "رجوع",
+    upload_all: "رفع الكل",
+    upload_single: "رفع هذا",
+    title: "رفع الاستبيانات",
+    uploaded: "تم الرفع!",
+    name: "الاسم",
+    hint: "تلميح",
+    size: "الحجم",
+    created_at: "تم الإنشاء في",
+    error: "حدث خطأ أثناء محاولة إرسال الحزمة المسماة :packet",
+    success: "تم إرسال الحزمة المسماة :packet!",
+  },
+};
