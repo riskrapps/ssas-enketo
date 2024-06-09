@@ -34,15 +34,30 @@ class EnketoForm {
   }
 
   _newFormInstance() {
+    const formOptions = {};
+
+    /**
+     * Here we get the UI language in see if the survey has translations for it.
+     * If it does, we set the form language to the UI language.
+     *
+     * Note: UI language can be changed by adding ?lang=xx to the URL.
+     * See src/js/i18n/i18n.js for more information and supported languages.
+     */
+    const uiLanguage = i18n.get("lang");
+    const languageModel = SurveyManager.survey.languageMap || {};
+    const surveyLanguages = Object.values(languageModel);
+
+    if (uiLanguage && surveyLanguages.includes(uiLanguage)) {
+      formOptions.language = uiLanguage;
+    }
+
     this.form = new Form(
       "form.or:eq(0)",
       {
         modelStr: SurveyManager.survey.model,
         ...SessionManager.session.toFormInstance(),
       },
-      {
-        language: i18n.get("lang"),
-      }
+      formOptions
     );
   }
 
