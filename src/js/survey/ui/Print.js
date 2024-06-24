@@ -35,6 +35,8 @@ export async function applyPrintStyle() {
 
       return printHelper.fixGrid(paper);
     }*/
+
+    window.printReady = true;
   } catch (e) {
     console.error(e);
   }
