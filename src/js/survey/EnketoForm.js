@@ -2,13 +2,12 @@ import "./enketo-patches/form-model";
 import fileManager from "./enketo-patches/file-manager";
 
 import { Form } from "enketo-core";
-import events from "enketo-core/src/js/event";
-import { fixGrid, styleToAll, styleReset } from "enketo-core/src/js/print";
 const emitter = require("tiny-emitter/instance");
 
 import SurveyManager from "./SurveyManager";
 import queryParams from "../common/QueryParams";
 import SessionManager from "./sessions/SessionManager";
+import { applyPrintStyle } from "./ui/Print";
 
 const makeEmitter = (silent) =>
   silent
@@ -41,16 +40,12 @@ class EnketoForm {
 
   // to facilitate developing print-specific issues
   _printView() {
-    document
-      .querySelectorAll(".question")
-      .forEach((el) => el.dispatchEvent(events.Printify()));
-
-    styleToAll();
+    applyPrintStyle();
   }
 
   _newFormInstance() {
     const formOptions = {
-      printRelevantOnly: true,
+      // printRelevantOnly: true,
     };
 
     /**
