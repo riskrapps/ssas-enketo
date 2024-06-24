@@ -24,17 +24,17 @@ export async function applyPrintStyle() {
       .querySelectorAll(".question")
       .forEach((question) => question.dispatchEvent(events.Printify()));
 
-    /*
-    if (formTheme === "grid" || (!formTheme && printHelper.isGrid())) {
+    // remove .pages class from the form
+    document.querySelector("form.or").classList.remove("pages");
+
+    if (printHelper.isGrid()) {
       const paper = {
-        format: settings.format,
-        landscape: settings.landscape,
-        scale: settings.scale,
-        margin: settings.margin,
+        format: "A4",
+        landscape: false,
       };
 
       return printHelper.fixGrid(paper);
-    }*/
+    }
 
     window.printReady = true;
   } catch (e) {
