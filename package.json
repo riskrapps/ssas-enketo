@@ -1,6 +1,6 @@
 {
   "name": "ssas-enketo",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "ssas enketo module",
   "scripts": {
     "serve": "http-server www/",
