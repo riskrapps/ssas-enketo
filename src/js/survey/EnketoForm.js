@@ -2,6 +2,8 @@ import "./enketo-patches/form-model";
 import fileManager from "./enketo-patches/file-manager";
 
 import { Form } from "enketo-core";
+import events from "enketo-core/src/js/event";
+import { fixGrid, styleToAll, styleReset } from "enketo-core/src/js/print";
 const emitter = require("tiny-emitter/instance");
 
 import SurveyManager from "./SurveyManager";
@@ -31,10 +33,23 @@ class EnketoForm {
     this._initFormInstance();
 
     emitter.emit("EnketoForm.initialized");
+
+    this._printView();
+  }
+
+  // to facilitate developing print-specific issues
+  _printView() {
+    document
+      .querySelectorAll(".question")
+      .forEach((el) => el.dispatchEvent(events.Printify()));
+
+    styleToAll();
   }
 
   _newFormInstance() {
-    const formOptions = {};
+    const formOptions = {
+      printRelevantOnly: true,
+    };
 
     /**
      * Here we get the UI language in see if the survey has translations for it.
