@@ -34,7 +34,9 @@ class EnketoForm {
 
     emitter.emit("EnketoForm.initialized");
 
-    this._printView();
+    if (queryParams.has("print")) {
+      this._printView();
+    }
   }
 
   // to facilitate developing print-specific issues
