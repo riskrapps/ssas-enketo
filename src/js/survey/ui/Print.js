@@ -33,11 +33,11 @@ export async function applyPrintStyle() {
         landscape: false,
       };
 
-      return printHelper.fixGrid(paper);
+      printHelper.fixGrid(paper);
     }
-
-    window.printReady = true;
   } catch (e) {
     console.error(e);
+  } finally {
+    window.printReady = true;
   }
 }
