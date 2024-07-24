@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js touch">
+
 <head>
     <title>SSA</title>
     <meta charset="UTF-8">
     <!-- webpack scripts will go here -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link href="build/css/survey-print.css" media="print" rel="stylesheet" />
 </head>
+
 <body>
     <div class="main">
         <article class="paper">
@@ -42,7 +45,8 @@
                 <div class="form-footer__jump-nav" style="display: flex; flex-direction: row;">
                     <a href="#" class="btn btn-default disabled previous-page" style="flex: 1; border-radius: 0;"
                         data-i18n="survey.back">Back</a>
-                    <a href="#" class="btn btn-default disabled next-page" style="flex: 1; border-radius: 0;" data-i18n="survey.next">Next</a>
+                    <a href="#" class="btn btn-default disabled next-page" style="flex: 1; border-radius: 0;"
+                        data-i18n="survey.next">Next</a>
                 </div>
             </section>
 
@@ -104,7 +108,8 @@
                     <label data-i18n="session.name">Name</label>
                     <input type="text" ng-model="form.name" style="width:100%;" />
                     <p id="session-modal__error"></p>
-                    <button class="md-button" ng-click="createSession()" ng-disabled="disableCreateButton" data-i18n="session.start">Start</button>
+                    <button class="md-button" ng-click="createSession()" ng-disabled="disableCreateButton"
+                        data-i18n="session.start">Start</button>
                     <hr />
 
                     <ul class="previous-sessions">
@@ -133,4 +138,5 @@
         </div>
     </div>
 </body>
+
 </html>

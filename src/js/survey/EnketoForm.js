@@ -7,6 +7,7 @@ const emitter = require("tiny-emitter/instance");
 import SurveyManager from "./SurveyManager";
 import queryParams from "../common/QueryParams";
 import SessionManager from "./sessions/SessionManager";
+import { applyPrintStyle } from "./ui/Print";
 
 const makeEmitter = (silent) =>
   silent
@@ -31,10 +32,21 @@ class EnketoForm {
     this._initFormInstance();
 
     emitter.emit("EnketoForm.initialized");
+
+    if (queryParams.has("print")) {
+      this._printView();
+    }
+  }
+
+  // to facilitate developing print-specific issues
+  _printView() {
+    applyPrintStyle();
   }
 
   _newFormInstance() {
-    const formOptions = {};
+    const formOptions = {
+      // printRelevantOnly: true,
+    };
 
     /**
      * Here we get the UI language in see if the survey has translations for it.

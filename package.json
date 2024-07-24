@@ -1,12 +1,13 @@
 {
   "name": "ssas-enketo",
-  "version": "2.7.0",
+  "version": "2.8.5",
   "description": "ssas enketo module",
   "scripts": {
     "serve": "http-server www/",
-    "build": "NODE_ENV=production webpack --mode=production",
+    "build": "NODE_ENV=production webpack --mode=production && yarn sass",
     "dev": "NODE_ENV=development webpack --mode=development --watch",
     "test": "mocha -r @babel/register -r babel-polyfill -r jsdom-global/register",
+    "sass": "npx sass src/sass/survey-print.scss --style compressed > www/build/css/survey-print.css",
     "clean": "rm -rf www/fonts www/build",
     "prepublishOnly": "yarn && yarn clean && yarn build"
   },
@@ -15,7 +16,7 @@
   "homepage": "https://github.com/swiftmade/ssas-enketo",
   "dependencies": {
     "angular": "1.7.4",
-    "enketo-core": "^5.13.0",
+    "enketo-core": "5.18.1",
     "intro.js": "^2.9.3",
     "lodash.set": "^4.3.2",
     "pouchdb": "^8.0.1",
@@ -40,6 +41,8 @@
     "font-awesome": "4.7",
     "html-webpack-exclude-assets-plugin": "^0.0.7",
     "html-webpack-plugin": "^3.2.0",
+    "jsdom": "^20.0.0",
+    "jsdom-global": "^3.0.2",
     "mini-css-extract-plugin": "^0.4.3",
     "mocha": "^5.2.0",
     "mocha-sinon": "^2.1.0",
@@ -50,9 +53,7 @@
     "style-loader": "^0.23.0",
     "terser-webpack-plugin": "^4.2.3",
     "webpack": "^4.18.1",
-    "webpack-cli": "^3.1.0",
-    "jsdom": "^20.0.0",
-    "jsdom-global": "^3.0.2"
+    "webpack-cli": "^3.1.0"
   },
   "resolutions": {
     "acorn": "8.0.1"
