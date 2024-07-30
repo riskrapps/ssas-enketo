@@ -1320,10 +1320,10 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.npmjs.org/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
   integrity sha512-0FcBfdcmaumGPQ0qPn7Q5qTgz/ooXgIyp1rf8ik5bGX8mpE2YHjC0P/eyQvxu1GURYQgq9ozf2mteQ5ZD9YiyQ==
 
-angular@1.7.4:
-  version "1.7.4"
-  resolved "https://registry.npmjs.org/angular/-/angular-1.7.4.tgz"
-  integrity sha512-nYTWc9CpZjTY57l8EA1+DGpQNzI6HewQ34bfRYoGXBYysIoPYjfcgTGWC+Vl3AaeCnhAb3VTkysVESvCBpUIoA==
+angular@1.7.9:
+  version "1.7.9"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.9.tgz#e52616e8701c17724c3c238cfe4f9446fd570bc4"
+  integrity sha512-5se7ZpcOtu0MBFlzGv5dsM1quQDoDeUTwZrWjGtTNA7O88cD8TEk5IEKCTDa3uECV9XnvKREVUr7du1ACiWGFQ==
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -2792,7 +2792,7 @@ enhanced-resolve@^4.1.1, enhanced-resolve@^4.5.0:
 
 enketo-core@5.18.1:
   version "5.18.1"
-  resolved "https://registry.yarnpkg.com/enketo-core/-/enketo-core-5.18.1.tgz#a6ec1703fab8a27eccb61057be1ee6c35f02c9d0"
+  resolved "https://registry.npmjs.org/enketo-core/-/enketo-core-5.18.1.tgz"
   integrity sha512-hk3l+EVghy1KTKUr01C5x0Ps3cr8nQMPxwx65E1qpOLuH3mY8TtpiWIy1XXJo4fkX4Wc8dLek8o9YYsVcNripg==
   dependencies:
     bootstrap-datepicker "1.9.x"
