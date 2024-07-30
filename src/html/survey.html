@@ -113,7 +113,7 @@
                     <hr />
 
                     <ul class="previous-sessions">
-                        <li ng-repeat="session in sessions track by $index">
+                        <li ng-repeat="session in sessions track by session.instance_id">
                             <div class="pull-right">
                                 <button class="sm-button action--delete_session" ng-click="delete(session)">
                                     <i class="fa fa-trash"></i>
