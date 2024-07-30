@@ -35,7 +35,7 @@
             </thead>
             <tbody id="packet-rows">
 
-                <tr ng-repeat="packet in packets | orderBy:'-date'">
+                <tr ng-repeat="packet in packets | orderBy:'-date' track by packet.instance_id">
                     <td>{{ packet.name }}</td>
                     <td>{{ packet.size | fileSize }}</td>
                     <td>{{ packet.last_update | date }}</td>
