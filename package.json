@@ -16,7 +16,7 @@
   "homepage": "https://github.com/swiftmade/ssas-enketo",
   "dependencies": {
     "angular": "1.7.9",
-    "enketo-core": "5.18.1",
+    "enketo-core": "8.3.0",
     "intro.js": "^2.9.3",
     "lodash.set": "^4.3.2",
     "pouchdb": "^8.0.1",
