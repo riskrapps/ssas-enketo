@@ -12,3 +12,5 @@ www/**/*.dev*
 # HTML files built by webpack
 www/submissions.html
 www/survey.html
+
+sessions/*

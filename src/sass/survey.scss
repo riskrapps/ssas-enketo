@@ -1,9 +1,9 @@
 @import "fonts";
-@import "enketo-core/src/sass/formhub/formhub.scss";
+@import "node_modules/enketo-core/src/sass/formhub/formhub.scss";
 @import "vendor/v-accordion";
 @import "vendor/toastr";
 @import "vendor/intro";
-@import "font-awesome/scss/font-awesome.scss";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 html,
 body {
