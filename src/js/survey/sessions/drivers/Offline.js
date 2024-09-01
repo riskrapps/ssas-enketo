@@ -33,7 +33,10 @@ import sessionRepository from '../../../common/repositories/SessionRepository'
 
     async finalize(session) {
         if (queryParams.has('instant_submit')) {
-            return await Submit(session)
+            const result = await Submit(session)
+            // Reset the session to draft if submission was successful
+            await sessionRepository.remove(session.data)
+            return result;
         }
         return await this.save(session.setData({
             draft: false,
