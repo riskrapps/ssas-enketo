@@ -1,15 +1,16 @@
 /**
+ *
  * Entrypoint for submissions.html
  */
-import "../sass/submissions.scss";
+import '../sass/submissions.scss';
 
 /**
  * Localization Module
  */
-import "./i18n/i18n";
+import './i18n/i18n';
 
 /**
  * UI Controllers
  */
-import "angular";
-import "./submission/ui/Submissions";
+import 'angular';
+import './submission/ui/Submissions';

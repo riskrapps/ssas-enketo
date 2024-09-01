@@ -14,6 +14,12 @@ const buildOptions = {
     'src/js/submissions.js',
     'src/html/submissions.html',
   ],
+  define: {
+    'global': 'window',
+  },  
+  inject: [
+    path.resolve(__dirname, 'src/js/shims/jquery-shim.js'),
+  ],
   bundle: true,
   minify: isProduction,
   sourcemap: isProduction ? false : 'inline',
@@ -76,6 +82,28 @@ const buildOptions = {
       },
     },
     polyfillNode(),
+    {
+      name: 'move-and-inject-scripts',
+      setup(build) {
+        build.onEnd(() => {
+          // Move HTML files from www/build to www
+          ['survey.html', 'submissions.html'].forEach((file) => {
+            const sourcePath = path.join(__dirname, 'www', 'build', file);
+            const destPath = path.join(__dirname, 'www', file);
+            fs.copyFileSync(sourcePath, destPath);
+            fs.unlinkSync(sourcePath);
+
+            // Update script src attributes
+            let content = fs.readFileSync(destPath, 'utf8');
+            content = content.replace(
+              /<script src="(.*?)\.js"><\/script>/g,
+              '<script src="build/js/$1.js"></script>'
+            );
+            fs.writeFileSync(destPath, content);
+          });
+        });
+      },
+    },
   ],
 };
 
