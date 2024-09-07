@@ -14,18 +14,23 @@
         <article class="paper">
             <!--
             This section is to be removed in application
-        -->
+            -->
             <header class="form-header" style="background-color:white">
                 <div class="form-progress"></div>
-                <div class="pull-right">
-                    <button class="save-progress"><i class="fa fa-save"></i></button>
-                    <button class="validate-form"><i class="fa fa-check"></i></button>
-                    <button class="first-page-alias"><i class="fa fa-backward"></i></button>
-                    <button class="last-page-alias"><i class="fa fa-forward"></i></button>
-                    <button id="jump-to"><i class="fa fa-search"></i></button>
-                    <button id="close-button"><i class="fa fa-remove"></i></button>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div style="flex: 0 0 auto;">
+                        <span class="form-language-selector hide"><span>Choose Language</span></span>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; flex: 1 1 auto; gap: 4px;">
+                        <button class="save-progress"><i class="fa fa-save"></i></button>
+                        <button class="validate-form"><i class="fa fa-check"></i></button>
+                        <button class="first-page-alias"><i class="fa fa-backward"></i></button>
+                        <button class="last-page-alias"><i class="fa fa-forward"></i></button>
+                        <button id="jump-to"><i class="fa fa-search"></i></button>
+                        <button id="close-button"><i class="fa fa-remove"></i></button>
+                    </div>
                 </div>
-                <div class="clearfix"></div>
             </header>
 
             <!-- The comment below is used in enketo-core-performance-monitor. -->
@@ -33,9 +38,9 @@
 
             <section class="form-footer">
                 <!--
-            Used some quick-and-dirty inline CSS styles here because the form-footer should be styled in the
-            mother application. The HTML markup can be changed as well.
-            -->
+                Used some quick-and-dirty inline CSS styles here because the form-footer should be styled in the
+                mother application. The HTML markup can be changed as well.
+                -->
                 <a class="first-page" style="display:none"></a>
                 <a class="last-page" style="display:none"></a>
                 <button class="btn btn-primary submit-form" style="width:200px; margin-left: calc(50% - 100px);"
