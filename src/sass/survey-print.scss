@@ -1,2 +1,4 @@
-@import "fonts";
-@import "../../node_modules/enketo-core/src/sass/formhub/formhub-print.scss";
+@import "../../node_modules/enketo-core/src/sass/core/_mixins.scss";
+@import "../../node_modules/enketo-core/src/sass/formhub/_mixins.scss";
+@import "../../node_modules/enketo-core/src/sass/core/_print.scss";
+@import "../../node_modules/enketo-core/src/sass/formhub/_print.scss";
